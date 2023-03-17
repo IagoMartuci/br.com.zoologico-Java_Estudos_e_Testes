@@ -10,10 +10,13 @@ public class Ave extends Animal {
 	public void setQuantidadeMediaOvos(int quantidadeMediaOvos) {
 		this.quantidadeMediaOvos = quantidadeMediaOvos;
 	}
-
+	
+	// Recebe como parametro o peso da sujeira que foi passado para o retornarCadastroAve na classe TesteMetodos
 	public void retornarCadastroAve(double pesoSujeira) {
-		System.out.println("Nome do animal: " + getNome() + "\n" + "Peso do animal: " + getPeso() + " Kg\n"
-				+ "Quantidade média de ovos: " + getQuantidadeMediaOvos() + "\nPeso total animal (peso + peso sujeira): "
-				+ (getPeso() + pesoSujeira) + " Kg");
+		System.out.println("Nome do animal: " + getNome() + "\nPeso do animal: " + getPeso() + " Kg\n"
+				+ "Peso sujeira: " + getPesoSujeira() + " Kg\n"
+				+ "Peso total animal (peso + peso sujeira): " + (getPeso() + getPesoSujeira()) + " Kg\n"
+				+ "Quantidade média de ovos: " + getQuantidadeMediaOvos()
+				+ "\n------------------------------------------------------------------------------------------");
 	}
 }
