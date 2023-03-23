@@ -168,11 +168,8 @@ public class TesteMetodos {
 			
 			// Recebe o retorno do double peso que está no método GrauDeLimpeza e passa como parametro para o método retornarCadastroAve
 			ave.retornarCadastroAve(returnGrauDeLimpeza);
-<<<<<<< HEAD
 			//OU
 			ave.retornarCadastroAve(ave.getPesoSujeira());
-=======
->>>>>>> 70cf3226ae878ff12372af1c8f13d7a5793d6950
 			
 			i++;
 		}
