@@ -123,41 +123,59 @@ public class TesteMetodos {
 	public static void Repteis() {
 		var reptil = new Reptil();
 		
-		var i = 1;
-		while (i <= 3) {
+		var i = 0;
+		
+		do {
+			i++;
+			
+			if (i > 3)
+				return;
+			
 			reptil.setNome(JOptionPane.showInputDialog("Informe o nome do réptil " + i));
 			reptil.setPeso(
 					Integer.parseInt(JOptionPane.showInputDialog("Informe o peso do animal: " + reptil.getNome())));
 			
-			String nmAnimal = reptil.getNome();
-			double returnGrauDeLimpeza = GrauDeLimpeza(nmAnimal, 0);
+			// Passamos como parametros o getNome que é string + e algum número double
+			double returnGrauDeLimpeza = GrauDeLimpeza(reptil.getNome(), 0.0);
 			
 			reptil.setQuantidadeMediaOvos(Integer.parseInt(
 					JOptionPane.showInputDialog("Informe a quantidade média de ovos do animal: " + reptil.getNome())));
 			
+			// Recebe o retorno do double peso que está no método GrauDeLimpeza e passa como parametro para o método retornarCadastroReptil
 			reptil.retornarCadastroReptil(returnGrauDeLimpeza);
-			i++;
-		}
+		} while (i <= 3);
 	}
 
 	public static void Aves() {
 		var ave = new Ave();
 		
-		var i = 0;
-		do {
-			i++;
+		var i = 1;
+		
+		while (i <= 3) {
+			
 			ave.setNome(JOptionPane.showInputDialog("Informe o nome da ave " + i));
 			ave.setPeso(Integer.parseInt(JOptionPane.showInputDialog("Informe o peso do animal: " + ave.getNome())));
 			
+			// Passamos como parametros o getNome que é string + getPesoSujeira que é double
 			double returnGrauDeLimpeza = GrauDeLimpeza(ave.getNome(), ave.getPesoSujeira());
+			
+			// Recebe o retorno do double peso que está no método GrauDeLimpeza e passa como parametro para o setPesoSujeira
+			// Apenas para poder demonstrar o peso da sujeira separado do peso do animal
+			ave.setPesoSujeira(returnGrauDeLimpeza);
 			
 			ave.setQuantidadeMediaOvos(Integer.parseInt(
 					JOptionPane.showInputDialog("Informe a quantidade média de ovos do animal: " + ave.getNome())));
 			
+			// Recebe o retorno do double peso que está no método GrauDeLimpeza e passa como parametro para o método retornarCadastroAve
 			ave.retornarCadastroAve(returnGrauDeLimpeza);
-		} while (i <= 3);
+			//OU
+			ave.retornarCadastroAve(ave.getPesoSujeira());
+			
+			i++;
+		}
 	}
-
+	
+	// Método recebe os parametros que passamos e faz as operações que estão programadas
 	public static double GrauDeLimpeza(String nomeAnimal, double pesoSujeira) {
 		int opcao;
 		do {
@@ -167,13 +185,14 @@ public class TesteMetodos {
 			} while (opcao != 1 && opcao != 2 && opcao != 3);
 			
 			double peso;
-			if (opcao == 3)
+			if (opcao == 3) 
 				peso = 1;
 			else if (opcao == 2)
 				peso = 0.5;
 			else
 				peso = 0;
 			
+			// Retorna double peso
 			return(peso);
 	}
 

@@ -3,7 +3,7 @@ package br.com.zoologico.beans;
 public class Animal {
 	private String nome;
 	private int peso;
-	private int pesoSujeira;
+	private double pesoSujeira;
 
 	public String getNome() {
 		return nome;
@@ -21,11 +21,11 @@ public class Animal {
 		this.peso = peso;
 	}
 
-	public int getPesoSujeira() {
+	public double getPesoSujeira() {
 		return pesoSujeira;
 	}
 
-	public void setPesoSujeira(int pesoSujeira) {
+	public void setPesoSujeira(double pesoSujeira) {
 		this.pesoSujeira = pesoSujeira;
 	}
 
